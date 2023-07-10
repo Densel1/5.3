@@ -5,6 +5,7 @@
 #include "ErrorHandler.h"
 
 
+
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -24,6 +25,7 @@ int main()
 		new_array.add_element(34);
 
 		arr = new_array;
+		std::cout << arr.get_element(1) << std::endl;
 	}
 	catch (const ErrorHandler& ex) {
 		std::cout << ex.what();

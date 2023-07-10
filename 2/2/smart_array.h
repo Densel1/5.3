@@ -6,25 +6,40 @@
 class smart_array
 {
 public:
-	static int i;
+
 	smart_array(int size)
 	{
-        i++;
 		var_size = size;
 		var = new int[size];
 	};
+
 	bool add_element(int element);
 	int get_element(int);
 	~smart_array()
 	{
-		if(--i != 0)
 		delete[] var;
 		var = nullptr;
 	}
+
+	smart_array& operator=(smart_array& ar)
+	{
+		if (this != &ar)
+		{
+			delete[] var;
+			this->var_size = ar.var_size;
+			var = new int[var_size];
+			for (int i = 0; i < this->var_size; i++)
+			{
+				var[i] = ar.var[i];
+			}
+		}
+		return *this;
+	}
+
 private:
 
 	int* var;
-	int var_size = 0;
 	int counter = 0;
+	int var_size = 0;
 };
 
