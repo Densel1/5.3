@@ -21,7 +21,18 @@ public:
 		var = nullptr;
 	}
 
-	smart_array& operator=(smart_array& ar)
+	smart_array(const smart_array& ar)
+	{
+		this->var_size = ar.var_size;
+		var = new int[var_size];
+		for (int i = 0; i < this->var_size; i++)
+		{
+			var[i] = ar.var[i];
+		}
+
+	}
+
+	smart_array& operator=(const smart_array& ar)
 	{
 		if (this != &ar)
 		{

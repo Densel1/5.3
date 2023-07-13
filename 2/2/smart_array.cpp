@@ -16,7 +16,8 @@ bool smart_array::add_element(int element)
 int smart_array::get_element(int element)
 {
 
-	if (element < var_size) return var[element];
-	else throw ErrorHandler("Error: end of array");
+	if (element >= var_size) throw ErrorHandler("Error: end of array");
+	if (element < 0) throw ErrorHandler("Error: Element is SUBZERO");
+	return var[element]; 
 }
 
